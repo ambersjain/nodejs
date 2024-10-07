@@ -44,18 +44,19 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      const result = document.querySelector('.result')
+      const result = document.querySelector('.result') //what is this?  
 
       const fetchPeople = async () => {
         try {
-          const { data } = await axios.get('/api/people')
+          const { data } = await axios.get('/api/people') 
+          console.log(data)//fetching data from the server/table
 
           const people = data.data.map((person) => {
-            return `<h5>${person.name}</h5>`
+            return `<h5>${person.name}</h5> <h5>${person.id}</h5>` 
           })
           result.innerHTML = people.join('')
         } catch (error) {
-          result.innerHTML = `<div class="alert alert-danger">Can't Fetch Data</div>`
+          result.innerHTML = `<div class="alert alert-danger">Can't Fetch Data you bugger</div>`
         }
       }
       fetchPeople()
